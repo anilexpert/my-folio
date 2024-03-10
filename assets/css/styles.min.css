@@ -1710,7 +1710,7 @@ i-circled {
 }
 
 .section {
-  padding: 150px 0;
+  padding: 100px 0;
 }
 
 @media (max-width:543px) {
@@ -1780,7 +1780,7 @@ i-circled {
 }
 
 #home {
-  height: 250px;
+  height: 150px;
 }
 
 .profile-image {
