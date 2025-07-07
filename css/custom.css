@@ -202,7 +202,7 @@ body::before{
 }
 
 p{
-	line-height: 1.6em;
+	line-height: 1.5em;
 	margin-bottom: 1.5em;
 }
 
@@ -473,7 +473,7 @@ body{
 }
 
 .section-row{
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 }
 
 .section-row .section-title{
@@ -516,13 +516,13 @@ body{
 }
 
 .section-title h1{
-	font-size: 36px;
+	font-size: 34px;
 	margin-bottom: 0;
 	cursor: none;
 }
 
 .section-title h2{
-	font-size: 38px;
+	font-size: 32px;
 	margin-bottom: 0;
 	cursor: none;
 }
@@ -631,7 +631,7 @@ header.main-header .header-sticky.active{
 	margin: 0;
 }
 .navbar-brand img{
-	max-height: 60px;
+	max-height: 48px;
 }
 
 .main-menu .nav-menu-wrapper{
@@ -1293,7 +1293,9 @@ header.main-header .header-sticky.active{
 }
 
 .service-item-header .icon-box img{
-	max-width: 60px;
+	height: 60px;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 .service-item-btn a{
@@ -1393,7 +1395,7 @@ header.main-header .header-sticky.active{
 
 .about-us{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -1535,7 +1537,7 @@ header.main-header .header-sticky.active{
 
 .our-facts{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -1581,7 +1583,7 @@ header.main-header .header-sticky.active{
 }
 
 .our-facts-content .section-title{
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 }
 
 .facts-counter-box{
@@ -1591,12 +1593,12 @@ header.main-header .header-sticky.active{
 }
 
 .facts-counter-item{
-	width: calc(24% - 15px);
+	width: calc(32% - 15px);
 	/* width: calc(50% - 15px); */
 }
 
 .facts-counter-item h2{
-	font-size: 42px;
+	font-size: 32px;
 	background: linear-gradient(254.54deg, var(--accent-color) 0.03%, var(--accent-secondary-color) 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1635,7 +1637,7 @@ header.main-header .header-sticky.active{
 
 .our-tools{
 	position: relative;
-	padding: 90px 0 60px;
+	padding: 60px 0 60px;
 	z-index: 1;
 }
 
@@ -1703,7 +1705,7 @@ header.main-header .header-sticky.active{
 
 .our-portfolio{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -1910,7 +1912,7 @@ header.main-header .header-sticky.active{
 
 .how-it-work{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -1995,7 +1997,7 @@ header.main-header .header-sticky.active{
 
 .our-pricing{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -2327,7 +2329,7 @@ header.main-header .header-sticky.active{
 
 .our-faqs{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -2445,7 +2447,7 @@ header.main-header .header-sticky.active{
 
 .our-blog{
 	position: relative;
-	padding: 90px 0 60px;
+	padding: 60px 0 60px;
 	z-index: 1;
 }
 
@@ -2500,7 +2502,7 @@ header.main-header .header-sticky.active{
 
 .contact-us-section{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -3235,7 +3237,7 @@ ul.project-list li a {
 
 .our-expertise{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -5000,7 +5002,7 @@ ul.project-list li a {
 	}
 
 	.service-item-header .icon-box img{
-		max-width: 50px;
+		max-height: 50px;
 	}
 
 	.service-item-btn a{
@@ -6001,7 +6003,7 @@ ul.project-list li a {
 	}
 
 	.service-item-header .icon-box img{
-        max-width: 45px;
+        max-height: 45px;
     }
 
 	.service-item-body h3{
