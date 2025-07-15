@@ -596,7 +596,7 @@ header.main-header{
 	top: 0;
 	width: 100%;
 	z-index: 100;
-}
+} 
 
 header.main-header .header-sticky{
 	position: relative;
@@ -1547,12 +1547,12 @@ header.main-header .header-sticky.active{
 	flex-wrap: wrap;
 	align-items: center;
 	gap: 80px;
-	background: linear-gradient(180deg, var(--accent-secondary-color) 0%, rgba(0, 0, 0, 0) 90.04%);	
+	/* background: linear-gradient(180deg, var(--accent-secondary-color) 0%, rgba(0, 0, 0, 0) 90.04%);	
 	border-radius: 30px;
-	padding: 80px;
+	padding: 80px; */
 }
 
-.our-facts-box::before{
+/* .our-facts-box::before{
 	content: "";
     position: absolute;
 	left: 20px;
@@ -1561,7 +1561,7 @@ header.main-header .header-sticky.active{
 	background: linear-gradient(180deg, var(--black-color) 90%, rgba(0, 0, 0, 0) 99.04%);
 	width: calc(100% - 40px);
 	height: calc(100% - 20px);
-}
+} */
 
 .our-facts-list,
 .our-facts-content{
@@ -1595,8 +1595,22 @@ header.main-header .header-sticky.active{
 .facts-counter-item{
 	width: calc(32% - 15px);
 	/* width: calc(50% - 15px); */
+	background: linear-gradient(180deg, var(--accent-secondary-color) 0%, rgba(0, 0, 0, 0) 90.04%);	
+	border-radius: 30px;
+	padding: 40px;
+	position: relative;
 }
-
+.facts-counter-item::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 10px;
+  top: 10px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--black-color) 90%, rgba(0, 0, 0, 0) 99.04%);
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+}
 .facts-counter-item h2{
 	font-size: 32px;
 	background: linear-gradient(254.54deg, var(--accent-color) 0.03%, var(--accent-secondary-color) 100%);
@@ -2571,13 +2585,37 @@ header.main-header .header-sticky.active{
 .view-resume-circle{
 	width: calc(35% - 15px);
 	text-align: end;
+	position: relative;
 }
 
 .view-resume-circle a img{
-	max-width: 120px;
-	animation: infiniterotate 20s infinite linear;
+	max-width: 190px;
+	
 }
-
+.view-resume-circle,
+.view-resume-circle a{
+	display: inline-block;
+}
+.view-resume-circle a .icon {
+  animation: infiniterotate 20s infinite linear;
+  position: absolute;
+  z-index: 1;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #181818;
+  text-align: center;
+  /* color: white;
+  font-size: 30px;
+  line-height: 122px; */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 26%;
+}
+.view-resume-circle a .icon img {
+	max-width: 100%;
+}
 .contact-form{
     background: url(../images/contact-form-bg-shape.svg) var(--secondary-color);
     background-repeat: no-repeat;
