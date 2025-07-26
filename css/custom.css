@@ -2872,7 +2872,7 @@ ul.project-list li a {
 
 .page-header{
 	position: relative;
-	padding: 240px 0 140px;
+	padding: 150px 0 80px;
 	z-index: 1;
 }
 
@@ -2926,7 +2926,7 @@ ul.project-list li a {
 
 .our-approach{
 	position: relative;
-	padding: 90px 0;
+	padding: 60px 0;
 	z-index: 1;
 }
 
@@ -3549,7 +3549,7 @@ ul.project-list li a {
 
 .page-services{
 	position: relative;
-	padding: 180px 0 90px;
+	padding: 80px 0 20px;
 	z-index: 1;
 }
 
@@ -3564,7 +3564,7 @@ ul.project-list li a {
 
 .page-service-single{
 	position: relative;
-	padding: 180px 0;
+	padding: 80px 0;
 	z-index: 1;
 }
 
