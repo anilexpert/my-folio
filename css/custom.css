@@ -12,7 +12,7 @@
 04. Hero css
 05. Scrolling Ticker css
 06. Our Specialization css
-07. About Us css
+07. About Me css
 08. Digital Success css
 09. Our Tools css
 10. Our Portfolio css
@@ -22,9 +22,9 @@
 14. Our Testimonials css
 15. Our FAQs css
 16. Our Blog css
-17. Contact Us css
+17. Contact Me css
 18. Footer css
-19. About Us Page css
+19. About Me Page css
 20. Services Page css
 21. Service Single css
 22. Blog Archive Css
@@ -38,7 +38,7 @@
 30. Image Gallery css
 31. Video Gallery css
 32. FAQs Page css
-33. Contact Us Page css
+33. Contact Me Page css
 34. 404 Page css
 35. Responsive css
 -------------------------------------------------------------------------------------- */
@@ -1390,7 +1390,7 @@ header.main-header .header-sticky.active{
 }
 
 /************************************/
-/***       07. About Us css       ***/
+/***       07. About Me css       ***/
 /************************************/
 
 .about-us{
@@ -2511,7 +2511,7 @@ header.main-header .header-sticky.active{
 }
 
 /************************************/
-/***      17. Contact Us css      ***/
+/***      17. Contact Me css      ***/
 /************************************/
 
 .contact-us-section{
@@ -2867,7 +2867,7 @@ ul.project-list li a {
 }
 
 /************************************/
-/***     19. About Us Page css    ***/
+/***     19. About Me Page css    ***/
 /************************************/
 
 .page-header{
@@ -4287,7 +4287,7 @@ ul.project-list li a {
 
 .page-portfoilo-single{
 	position: relative;
-	padding: 180px 0;
+	padding: 80px 0;
 	z-index: 1;
 }
 
@@ -4808,7 +4808,7 @@ ul.project-list li a {
 }
 
 /************************************/
-/***    33. Contact Us Page css   ***/
+/***    33. Contact Me Page css   ***/
 /************************************/
 
 .page-contact-us{
