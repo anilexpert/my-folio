@@ -327,5 +327,7 @@
 		}
 	}
 	/* Our Feature List Active End */
+
+    document.getElementById('year').textContent = new Date().getFullYear();
 	
 })(jQuery);

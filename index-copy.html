@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anil Kumar — Full-Stack Designer Portfolio</title>
+<style>
+  /* Reset & base styling */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f9f9; color: #333; scroll-behavior: smooth; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+
+  /* Container for all sections */
+  .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+
+  /* Header with sticky navigation */
+  header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid #ddd; z-index: 9999; box-shadow: 0 2px 5px rgb(0 0 0 / 0.05); }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 2rem; max-width: 1200px; margin: 0 auto;}
+  .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 3px; color: #0078d7; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links li { font-weight: 600; cursor: pointer; }
+  .nav-links li a { color: #222; transition: color 0.3s ease; }
+  .nav-links li a:hover { color: #0078d7; }
+
+  /* Hero Section */
+  .hero { display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 4rem 2rem; background: #fff; color: #333; }
+  .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 700; color: #222;}
+  .hero h2 { font-size: 1.2rem; font-style: italic; margin-bottom: 2rem; opacity: 0.9; color: #0078d7;}
+  .hero p { max-width: 700px; margin: 0 auto 2rem auto; font-size: 1.1rem; line-height: 1.7; color: #555;}
+  .btn-primary { background: #0078d7; color: #fff; border: none; padding: 0.8rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 120, 215, 0.3); transition: all 0.3s ease; align-self: center; }
+  .btn-primary:hover { background: #0056b3; transform: translateY(-2px); }
+
+  /* Sections styling */
+  section { padding: 4rem 1rem; }
+  section:nth-child(even) { background-color: #fff; }
+  section h2, section h3 { font-size: 2rem; font-weight: 700; margin-bottom: 2rem; text-align: center; color: #222; }
+  
+  /* About Section */
+  .about { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+  .about .profile-pic { border-radius: 50%; width: 180px; height: 180px; object-fit: cover; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
+  .about-text { max-width: 700px; text-align: center; }
+  .about-text h3 { font-size: 2rem; margin-bottom: 1rem; font-weight: 700; }
+  .about-text p { font-size: 1.1rem; color: #444; line-height: 1.7; margin-bottom: 1rem; }
+  .metrics { display: flex; justify-content: center; gap: 4rem; margin-top: 2rem; flex-wrap: wrap; }
+  .metric-item { text-align: center; }
+  .metric-item span.num { display: block; font-size: 2rem; font-weight: 700; color: #0078d7; }
+  .metric-item span.label { font-weight: 600; color: #555; }
+
+  /* Number Facts Section */
+  .number-facts h3 { font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem; text-align:center; }
+  .facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center; }
+  .fact-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 2rem 1.5rem; box-shadow: 0 4px 10px rgb(0 0 0 / 0.05); }
+  .fact-card h4 { font-size: 2.5rem; font-weight: 800; color: #0078d7; margin-bottom: 0.5rem; }
+  .fact-card p { font-weight: 600; color: #333; }
+
+  /* Expertise Section */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+  .skill-category { background: #fff; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 15px rgb(0 0 0 / 0.05); text-align: left; }
+  .skill-category h4 { font-weight: 700; margin-bottom: 1rem; color: #0078d7; text-align: left;}
+  .skill-category ul { list-style: none; padding-left: 0; }
+  .skill-category ul li { padding: 0.5rem 0; font-weight: 600; color: #444; border-bottom: 1px solid #eee; }
+  .process-heading { font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; text-align: left; }
+  .process-icons { display: flex; justify-content: flex-start; gap: 2rem; flex-wrap: wrap; }
+  .process-step { max-width: 120px; text-align: center; }
+  .process-step svg { width: 48px; height: 48px; stroke: #0078d7; margin-bottom: 0.5rem; }
+  .process-step p { font-weight: 600; color: #333; font-size: 0.95rem; }
+
+  /* Portfolio Section */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .project-card { background: #fff; box-shadow: 0 6px 15px rgb(0 0 0 / 0.08); border-radius: 15px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+  .project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgb(0 0 0 / 0.12); }
+  .project-image { object-fit: cover; width: 100%; height: 220px; }
+  .project-info { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+  .project-info h4 { color: #0078d7; margin-bottom: 0.5rem; font-weight: 700; text-align: left; font-size: 1.2rem;}
+  .project-info p { flex-grow: 1; color: #555; font-size: 0.95rem; margin-bottom: 1rem; text-align: left;}
+  .project-tech { font-size: 0.85rem; font-weight: 600; color: #999; margin-bottom: 1rem; text-align: left;}
+  .case-study-link { font-weight: 700; color: #0056b3; text-align: right; }
+  .case-study-link:hover { text-decoration: underline; }
+
+  /* Client Reviews Section */
+  .reviews h3 { text-align: center; margin-bottom: 2rem; font-weight: 700; color: #222; }
+  .review-slider { display: flex; overflow-x: auto; gap: 1.5rem; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-width: thin; }
+  .review { flex: 0 0 90%; max-width: 340px; scroll-snap-align: center; background: #fff; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 12px rgb(0 0 0 / 0.08); }
+  .review p { font-style: italic; font-size: 1rem; color: #444; margin-bottom: 1rem; }
+  .review .name { font-weight: 700; font-size: 0.9rem; color: #0078d7; text-align: right; }
+
+  /* Pricing - Flexible plans Section */
+  .plans h3 { font-weight: 700; color: #222; margin-bottom: 1rem; text-align: center; }
+  .plan-list { list-style: none; padding-left: 0; font-weight: 600; color: #0078d7; font-size: 1.1rem; line-height: 1.8; text-align: center;}
+  .plan-list li { margin-bottom: 0.8rem; }
+
+  /* FAQ Accordion Section */
+  .faq h3 { font-weight: 700; font-size: 1.5rem; margin-bottom: 2.5rem; text-align: center; color: #222; }
+  .faq-item { margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem;}
+  .faq-question { font-weight: 700; cursor: pointer; position: relative; padding-right: 1.5rem; font-size: 1.1rem;}
+  .faq-question::after { content: '+'; position: absolute; right: 0; top: 0; font-weight: 700; font-size: 1.5rem; transition: transform 0.3s ease; color: #0078d7;}
+  .faq-question.active::after { content: '−' ; transform: rotate(180deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-top: 0; color: #555; }
+  .faq-answer p { padding: 0.5rem 0; }
+
+  /* Contact Form Section */
+  .contact-form { background: #fff; padding: 2.5rem; border-radius: 15px; box-shadow: 0 6px 20px rgb(0 0 0 / 0.07); }
+  .contact-form h3 { text-align: center; color: #222; margin-bottom: 1.5rem; }
+  form { display: flex; flex-direction: column; gap: 1rem; }
+  label { font-weight: 600; color: #555; }
+  input, textarea { padding: .75rem 1rem; border: 1px solid #ccc; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s; }
+  input:focus, textarea:focus { border-color: #0078d7; outline: none; }
+  textarea { resize: vertical; min-height: 120px; }
+  button.submit-btn { background: #0078d7; border: none; color: white; padding: 0.8rem; font-size: 1.1rem; font-weight: 700; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; }
+  button.submit-btn:hover { background: #0056b3; transform: translateY(-2px); }
+
+  /* Footer Section */
+  footer { background: #222; color: #ccc; padding: 4rem 1rem 2rem; font-size: 0.9rem; }
+  .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: left;}
+  .footer-col h4 { font-weight: 700; margin-bottom: 1rem; color: #fff; }
+  .footer-col ul { list-style: none; padding-left: 0; }
+  .footer-col ul li { margin-bottom: 0.6rem; }
+  .footer-col ul li a { color: #ccc; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: #0078d7; }
+  .copyright { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #444; color: #888; }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .nav-links { display: none; } /* Add hamburger menu logic here */
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .about { flex-direction: column; text-align: center; }
+    .about-text h3 { text-align: center; }
+  }
+
+  @media (min-width: 768px) {
+    .hero { padding: 6rem 2rem; text-align: left; }
+    .hero h1 { font-size: 3.5rem; }
+    .hero p { font-size: 1.2rem; margin-left: 0;}
+    .hero .btn-primary { align-self: flex-start; }
+    .about { flex-direction: row; text-align: left; gap: 4rem; }
+    .about-text h3 { text-align: left; }
+    .metrics { justify-content: start; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">AK</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+    <section class="hero">
+      <div class="container">
+        <h2>Clarity, Precision, and Purpose.</h2>
+        <h1>Anil Kumar — Full-Stack Designer</h1>
+        <p>Hi, I'm Anil Kumar, a passionate Full-Stack Designer based in India. My design philosophy centers around crafting modern, elegant digital experiences where beauty is found in the precision of fine lines, thoughtful shapes, and purposeful details. I believe that true sophistication lies in subtlety, and I strive to infuse each project with a balance of minimalism and visual depth.</p>
+        <button class="btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">My Portfolio</button>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <img src="https://via.placeholder.com/180" alt="Anil Kumar professional headshot" class="profile-pic" />
+        <div class="about-text">
+          <h3>Who is Anil Kumar</h3>
+          <p>I'm Anil Kumar — a Full-Stack Designer based in India with 8+ years of experience crafting user-focused digital solutions. I bridge the gap between elegant design and functional code, delivering end-to-end experiences that are scalable, accessible, and performance-driven. My approach blends clarity, precision, and purpose — creating modern, responsive interfaces that align with both user needs and business goals.</p>
+          <div class="metrics">
+            <div class="metric-item"><span class="num">8+</span><span class="label">Years Experience</span></div>
+            <div class="metric-item"><span class="num">50+</span><span class="label">Projects Delivered</span></div>
+            <div class="metric-item"><span class="num">Multiple</span><span class="label">Industries Served</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="number-facts">
+        <div class="container number-facts">
+            <h2>My Number Facts</h2>
+            <h3>A few stats that tell my story:</h3>
+            <div class="facts-grid">
+              <div class="fact-card"><h4>95%</h4><p>Client Return Rate</p></div>
+              <div class="fact-card"><h4>+30%</h4><p>User Engagement</p></div>
+              <div class="fact-card"><h4>200+</h4><p>Prototypes & Wireframes</p></div>
+              <div class="fact-card"><h4>100%</h4><p>Project Delivery</p></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <div class="container">
+            <h2>My Expertise</h2>
+            <div class="skills-grid">
+              <div class="skill-category">
+                <h4>Design Skills</h4>
+                <ul>
+                  <li>User Experience (UX) Design</li>
+                  <li>User Interface (UI) Design</li>
+                  <li>Prototyping & Wireframing</li>
+                  <li>Design Systems</li>
+                  <li>User Research & Testing</li>
+                </ul>
+                <h5 class="process-heading">Design Work Process</h5>
+                <div class="process-icons">
+                  <div class="process-step"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"></path><path d="M8 12.5l3 3 5-5"></path></svg><p>Discover</p></div>
+                  <div class="process-step"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M15.5 2.5l5 5"></path><path d="M21.172 8.828l-8.344 8.344-3.535.354.353-3.536 8.344-8.344a2 2 0 012.828 0z"></path></svg><p>Design</p></div>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Technical Skills</h4>
+                <ul>
+                  <li>Frontend Development (HTML, CSS, JavaScript)</li>
+                  <li>React/Vue.js</li>
+                  <li>Responsive Design</li>
+                  <li>Figma, Sketch, Adobe Suite</li>
+                  <li>Version Control (Git)</li>
+                </ul>
+                <h5 class="process-heading">Development Work Process</h5>
+                <div class="process-icons">
+                  <div class="process-step"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 17l-5-5 5-5"></path><path d="M7 17l5-5-5-5"></path></svg><p>Develop</p></div>
+                  <div class="process-step"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 12l-4 4-4-4"></path><path d="M10 20v-8a2 2 0 012-2h8"></path></svg><p>Deploy</p></div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <h2>My portfolio</h2>
+        <div class="portfolio-grid">
+          <div class="project-card">
+            <img src="https://via.placeholder.com/400x250/007BFF/FFFFFF?text=Dashboard+SaaS" alt="Dashboard SaaS Interface" class="project-image" />
+            <div class="project-info">
+              <h4>Dashboard/SaaS Interface Design</h4>
+              <p>Intuitive dashboard UI with efficient data visualization for a cloud SaaS product.</p>
+              <div class="project-tech">React, Figma, REST API</div>
+              <a href="#" class="case-study-link">Case Study →</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/400x250/6F42C1/FFFFFF?text=Mobile+App+UI/UX" alt="Mobile App UI/UX" class="project-image" />
+            <div class="project-info">
+              <h4>Mobile App UI/UX</h4>
+              <p>Creating seamless mobile user interfaces emphasizing accessibility and smooth navigation.</p>
+              <div class="project-tech">Sketch, React Native, User Testing</div>
+              <a href="#" class="case-study-link">Case Study →</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/400x250/28A745/FFFFFF?text=Web+Application" alt="Web Application Development" class="project-image" />
+            <div class="project-info">
+              <h4>Web Application Development</h4>
+              <p>Responsive and engaging web app built with Vue.js and modern CSS techniques.</p>
+              <div class="project-tech">Vue.js, CSS Grid, Agile</div>
+              <a href="#" class="case-study-link">Case Study →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="client-reviews">
+        <div class="container reviews">
+            <h3>See what people are saying about my work</h3>
+            <div class="review-slider">
+              <div class="review"><p>"Anil is fantastic at understanding project needs and delivering above expectations! His designs are clean, modern, and highly effective."</p><div class="name">- Jane D, Project Manager</div></div>
+              <div class="review"><p>"Highly recommended - responsive, talented, and incredibly detail-oriented. A true professional from start to finish."</p><div class="name">- John S, Startup Founder</div></div>
+              <div class="review"><p>"Our product looks and feels amazing thanks to Anil's UI/UX expertise. User engagement has skyrocketed since the redesign."</p><div class="name">- Emily R, Product Owner</div></div>
+              <div class="review"><p>"Professional, efficient, and great communication throughout the entire process. I couldn't be happier with the results."</p><div class="name">- Michael B, CEO</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing-plans">
+        <div class="container plans">
+            <h3>Flexible plans tailored to your project needs</h3>
+            <ul class="plan-list">
+              <li>→ Hourly Engagement</li>
+              <li>→ Monthly Package</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="faq">
+        <div class="container faq">
+            <h3>You have different questions? Ask Away!</h3>
+            <div class="faq-item">
+              <div class="faq-question">What’s your typical project workflow?</div>
+              <div class="faq-answer"><p>I take a user-centered approach, starting with discovery and research, followed by wireframing, high-fidelity design, prototyping, and finally, development. Each phase includes clear milestones and frequent feedback loops.</p></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Do you provide post-launch support?</div>
+              <div class="faq-answer"><p>Yes, I offer flexible support and maintenance packages to ensure your product remains up-to-date, secure, and performs optimally after launch. We can tailor a plan that fits your needs.</p></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">How do you ensure accessibility?</div>
+              <div class="faq-answer"><p>I strictly follow Web Content Accessibility Guidelines (WCAG) and conduct rigorous testing with screen readers and other assistive technologies throughout the design and development process to ensure an inclusive experience.</p></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Can you work with my existing tech stack?</div>
+              <div class="faq-answer"><p>Absolutely. I am proficient with a wide range of technologies and can seamlessly adapt to your team's current tools and frameworks, ensuring a smooth and efficient integration.</p></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container" style="max-width: 700px;">
+            <div class="contact-form">
+                <h3>Get in touch to discuss your next project</h3>
+                <form id="contact-form">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Your name" />
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="Your email" />
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+                  <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4 class="logo">AK</h4>
+            <p>Full-Stack Designer crafting modern digital experiences.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>What I Do</h4>
+          <ul>
+            <li>User Experience Design</li>
+            <li>User Interface Design</li>
+            <li>Frontend Development</li>
+            <li>Prototyping & Wireframing</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect with me</h4>
+          <ul>
+            <li><a href="mailto:anil.kumar@example.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/anilkumar" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        Copyright © 2025 All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+// FAQ Accordion Functionality
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        
+        button.classList.toggle('active');
+
+        if (button.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            answer.style.paddingTop = '0.5rem';
+        } else {
+            answer.style.maxHeight = null;
+            answer.style.paddingTop = null;
+        } 
+    });
+});
+
+// Simple form submission handler
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Thank you for your message! I will get back to you soon.');
+  form.reset();
+});
+</script>
+</body>
+</html>

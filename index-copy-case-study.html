@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project Name - Anil Kumar Case Study</title>
+<style>
+  /* Reset & base styling */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Segoe UI', sans-serif; line-height: 1.7; color: #2c3e50; background: #fafbfc; }
+  
+  /* Header Navigation */
+  .header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; border-bottom: 1px solid #e1e8ed; }
+  .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+  .logo { font-weight: 700; font-size: 1.5rem; color: #0078d7; }
+  .nav-back { color: #0078d7; font-weight: 600; padding: 0.5rem 1rem; border: 1px solid #0078d7; border-radius: 25px; transition: all 0.3s; }
+  .nav-back:hover { background: #0078d7; color: white; }
+  
+  /* Container */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+  
+  /* Hero Section */
+  .hero { padding: 120px 0 80px; text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+  .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+  .hero .subtitle { font-size: 1.3rem; opacity: 0.95; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .hero-meta { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem; }
+  .meta-item { text-align: center; }
+  .meta-label { font-size: 0.9rem; opacity: 0.8; margin-bottom: 0.3rem; }
+  .meta-value { font-size: 1.1rem; font-weight: 700; }
+  
+  /* Project Image */
+  .hero-image { margin: 4rem 0; text-align: center; }
+  .hero-image img { max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+  
+  /* Content Sections */
+  .section { margin: 5rem 0; }
+  .section h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; color: #1a202c; }
+  .section h3 { font-size: 1.8rem; font-weight: 600; margin: 2rem 0 1rem; color: #2d3748; }
+  .section p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #4a5568; }
+  
+  /* Overview Grid */
+  .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0; }
+  .overview-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+  .overview-card h4 { color: #0078d7; font-weight: 700; margin-bottom: 1rem; }
+  .overview-card ul { list-style: none; padding: 0; }
+  .overview-card li { padding: 0.3rem 0; color: #4a5568; }
+  .overview-card li:before { content: "→"; color: #0078d7; font-weight: bold; margin-right: 0.5rem; }
+  
+  /* Problem Statement */
+  .problem-highlight { background: #fff5f5; border-left: 4px solid #e53e3e; padding: 2rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+  .problem-highlight h3 { color: #e53e3e; margin-bottom: 1rem; }
+  
+  /* Solution Highlight */
+  .solution-highlight { background: #f0fff4; border-left: 4px solid #38a169; padding: 2rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+  .solution-highlight h3 { color: #38a169; margin-bottom: 1rem; }
+  
+  /* Process Steps */
+  .process-timeline { margin: 3rem 0; }
+  .process-step { display: flex; gap: 2rem; margin: 3rem 0; align-items: flex-start; }
+  .step-number { background: #0078d7; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; flex-shrink: 0; }
+  .step-content h4 { color: #1a202c; margin-bottom: 0.5rem; font-size: 1.3rem; }
+  .step-content p { color: #4a5568; }
+  
+  /* Image Grid */
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
+  .image-grid img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .image-grid img:hover { transform: translateY(-5px); }
+  
+  /* Large Image */
+  .large-image { text-align: center; margin: 3rem 0; }
+  .large-image img { max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); }
+  .image-caption { font-size: 0.95rem; color: #718096; margin-top: 1rem; font-style: italic; }
+  
+  /* Metrics/Results */
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; }
+  .metric-card { background: white; text-align: center; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+  .metric-number { font-size: 3rem; font-weight: 800; color: #0078d7; margin-bottom: 0.5rem; }
+  .metric-label { color: #4a5568; font-weight: 600; }
+  
+  /* Key Insights */
+  .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+  .insight-card { background: #f7fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4299e1; }
+  .insight-card h5 { color: #2b6cb0; margin-bottom: 0.5rem; font-weight: 700; }
+  
+  /* Navigation */
+  .case-nav { background: white; padding: 3rem 0; text-align: center; margin-top: 5rem; border-top: 1px solid #e2e8f0; }
+  .nav-buttons { display: flex; justify-content: space-between; max-width: 500px; margin: 0 auto; gap: 2rem; }
+  .nav-btn { padding: 1rem 2rem; border-radius: 50px; font-weight: 600; transition: all 0.3s; flex: 1; }
+  .btn-primary { background: #0078d7; color: white; border: none; }
+  .btn-secondary { background: #e2e8f0; color: #4a5568; border: none; }
+  .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero-meta { flex-direction: column; gap: 1.5rem; }
+    .process-step { flex-direction: column; text-align: center; }
+    .step-number { margin: 0 auto 1rem; }
+    .nav-buttons { flex-direction: column; }
+    .container { padding: 0 1rem; }
+  }
+</style>
+</head>
+
+<body>
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">AK</div>
+      <a href="#" class="nav-back">← Back to Portfolio</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>SaaS Dashboard Redesign</h1>
+      <p class="subtitle">Transforming complex data into actionable insights through intuitive design</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">Lead UX/UI Designer</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Duration</div>
+          <div class="meta-value">3 Months</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Team</div>
+          <div class="meta-value">4 Members</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Platform</div>
+          <div class="meta-value">Web Application</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Image -->
+  <section class="hero-image">
+    <div class="container">
+      <img src="https://via.placeholder.com/1000x600/667eea/ffffff?text=Final+Dashboard+Design" alt="Final Dashboard Design" />
+    </div>
+  </section>
+
+  <!-- Project Overview -->
+  <section class="section">
+    <div class="container">
+      <h2>Project Overview</h2>
+      <p>DataFlow Analytics was struggling with user engagement on their analytics dashboard. Users found it difficult to extract meaningful insights from their data, leading to decreased platform usage and customer churn. Our goal was to redesign the dashboard to make complex data more accessible and actionable.</p>
+      
+      <div class="overview-grid">
+        <div class="overview-card">
+          <h4>The Challenge</h4>
+          <ul>
+            <li>Poor user engagement (32% monthly active users)</li>
+            <li>Complex navigation structure</li>
+            <li>Overwhelming data presentation</li>
+            <li>Lack of mobile responsiveness</li>
+          </ul>
+        </div>
+        <div class="overview-card">
+          <h4>My Role</h4>
+          <ul>
+            <li>User research and interviews</li>
+            <li>Information architecture</li>
+            <li>Wireframing and prototyping</li>
+            <li>Visual design and testing</li>
+          </ul>
+        </div>
+        <div class="overview-card">
+          <h4>Key Outcomes</h4>
+          <ul>
+            <li>65% increase in user engagement</li>
+            <li>40% reduction in support tickets</li>
+            <li>Improved task completion rate</li>
+            <li>Enhanced mobile experience</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statement -->
+  <section class="section">
+    <div class="container">
+      <div class="problem-highlight">
+        <h3>🎯 The Problem</h3>
+        <p>Users were abandoning the platform due to information overload and poor usability. The existing dashboard presented too much data without clear hierarchy or actionable insights, resulting in a 68% drop-off rate within the first month of usage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Process -->
+  <section class="section">
+    <div class="container">
+      <h2>Research & Discovery</h2>
+      <p>To understand the core issues, I conducted comprehensive user research using multiple methodologies to gather both quantitative and qualitative insights.</p>
+      
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>User Interviews</h4>
+            <p>Conducted 15 in-depth interviews with existing users to understand pain points, workflows, and goals. Key finding: 80% of users only used 3 out of 12 available features.</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Analytics Review</h4>
+            <p>Analyzed user behavior data and heatmaps to identify drop-off points and most/least used features. Discovered users spent 70% of their time on just 2 core functions.</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Competitive Analysis</h4>
+            <p>Evaluated 8 competing dashboard solutions to identify industry best practices and opportunities for differentiation.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="large-image">
+        <img src="https://via.placeholder.com/900x500/4299e1/ffffff?text=User+Research+Findings" alt="User Research Findings" />
+        <p class="image-caption">Key findings from user interviews and analytics review</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Insights -->
+  <section class="section">
+    <div class="container">
+      <h2>Key Insights</h2>
+      <div class="insights-grid">
+        <div class="insight-card">
+          <h5>Information Hierarchy</h5>
+          <p>Users needed clear visual hierarchy to prioritize the most important data points first.</p>
+        </div>
+        <div class="insight-card">
+          <h5>Customization</h5>
+          <p>Different user roles required different dashboard configurations and data views.</p>
+        </div>
+        <div class="insight-card">
+          <h5>Mobile Access</h5>
+          <p>35% of users needed mobile access for real-time monitoring and alerts.</p>
+        </div>
+        <div class="insight-card">
+          <h5>Quick Actions</h5>
+          <p>Users wanted to perform common tasks without navigating through multiple screens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Process -->
+  <section class="section">
+    <div class="container">
+      <h2>Design Process</h2>
+      <p>Based on research insights, I followed a structured design approach focusing on user-centered solutions.</p>
+      
+      <h3>Information Architecture</h3>
+      <p>Restructured the navigation and content hierarchy to match user mental models and prioritize core features.</p>
+      
+      <div class="large-image">
+        <img src="https://via.placeholder.com/900x600/38a169/ffffff?text=Information+Architecture" alt="Information Architecture" />
+        <p class="image-caption">Simplified navigation structure based on user task flows</p>
+      </div>
+      
+      <h3>Wireframing & Prototyping</h3>
+      <p>Created low-fidelity wireframes to test layout concepts, then developed interactive prototypes for user testing.</p>
+      
+      <div class="image-grid">
+        <img src="https://via.placeholder.com/400x300/718096/ffffff?text=Wireframes" alt="Initial Wireframes" />
+        <img src="https://via.placeholder.com/400x300/718096/ffffff?text=User+Flow" alt="User Flow Diagram" />
+        <img src="https://via.placeholder.com/400x300/718096/ffffff?text=Prototype" alt="Interactive Prototype" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Solution -->
+  <section class="section">
+    <div class="container">
+      <div class="solution-highlight">
+        <h3>💡 The Solution</h3>
+        <p>A streamlined, customizable dashboard that prioritizes the most important data while providing easy access to detailed views. The new design focuses on progressive disclosure and personalization to match different user needs.</p>
+      </div>
+      
+      <h3>Key Design Features</h3>
+      
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-number">🎯</div>
+          <div class="step-content">
+            <h4>Smart Data Prioritization</h4>
+            <p>Implemented a card-based layout that surfaces the most critical metrics first, with drill-down capabilities for detailed analysis.</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">🔧</div>
+          <div class="step-content">
+            <h4>Customizable Widgets</h4>
+            <p>Users can now personalize their dashboard by adding, removing, and rearranging widgets based on their specific role and responsibilities.</p>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">📱</div>
+          <div class="step-content">
+            <h4>Mobile-First Design</h4>
+            <p>Responsive design ensures full functionality across all devices, with touch-optimized interactions for mobile users.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="large-image">
+        <img src="https://via.placeholder.com/1000x700/667eea/ffffff?text=Final+Dashboard+Solution" alt="Final Dashboard Solution" />
+        <p class="image-caption">The redesigned dashboard featuring improved information hierarchy and customizable widgets</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results & Impact -->
+  <section class="section">
+    <div class="container">
+      <h2>Results & Impact</h2>
+      <p>The redesigned dashboard significantly improved user engagement and business metrics within 3 months of launch.</p>
+      
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-number">+65%</div>
+          <div class="metric-label">User Engagement</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">-40%</div>
+          <div class="metric-label">Support Tickets</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">+85%</div>
+          <div class="metric-label">Task Completion</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">+120%</div>
+          <div class="metric-label">Mobile Usage</div>
+        </div>
+      </div>
+      
+      <h3>What I Learned</h3>
+      <p>This project reinforced the importance of user-centered design and data-driven decision making. Key learnings included the value of progressive disclosure in complex interfaces and the critical role of customization in B2B products.</p>
+      
+      <h3>Next Steps</h3>
+      <p>Based on the success of this redesign, the team is now working on advanced analytics features and AI-powered insights to further enhance the user experience.</p>
+    </div>
+  </section>
+
+  <!-- Case Study Navigation -->
+  <section class="case-nav">
+    <div class="container">
+      <div class="nav-buttons">
+        <button class="nav-btn btn-secondary">← Previous Case Study</button>
+        <button class="nav-btn btn-primary">Next Case Study →</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
